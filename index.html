@@ -1,91 +1,22 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil Sultan Alam Syhari</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-      text-align: center;
-      max-width: 420px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.25);
-    }
-    img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 5px solid #007bff;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-    h2 {
-      margin: 10px 0 5px;
-      color: #2c3e50;
-    }
-    h4 {
-      margin: 5px 0 20px;
-      color: #007bff;
-      font-weight: normal;
-      font-size: 16px;
-    }
-    p {
-      margin: 8px 0;
-      color: #555;
-      font-size: 15px;
-    }
-    .info {
-      margin-top: 20px;
-      font-size: 15px;
-      line-height: 1.6;
-      text-align: left;
-    }
-    .info strong {
-      color: #2c3e50;
-    }
-    .hobi {
-      margin-top: 15px;
-      background: #f4f9ff;
-      padding: 12px;
-      border-radius: 10px;
-      border-left: 4px solid #007bff;
-      text-align: left;
-    }
-  </style>
+  <title>Test Kamera</title>
 </head>
 <body>
-  <div class="card">
-    <img src="foto1.jpg" alt="Foto Profil"> <!-- ganti foto sesuai file kamu -->
-    <h2>Sultan Alam Syhari</h2>
-    <h4>Mahasiswa Sistem Informasi</h4>
+  <h3>Test Kamera Laptop</h3>
+  <video id="preview" width="400" height="300" autoplay></video>
 
-    <div class="info">
-      <p><strong>Prodi:</strong> Sistem informasi</p>
-      <p><strong>Alamat:</strong> Tanjung balai,sunge duo</p>
-      <p><strong>Email:</strong> sultan@mail.com</p>
-      <p><strong>WhatsApp:</strong> 0888888888888</p>
-    </div>
-
-    <div class="hobi">
-      <p><strong>Hobi:</strong> Tidur 😴</p>
-    </div>
-  </div>
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        document.getElementById("preview").srcObject = stream;
+      })
+      .catch(err => {
+        alert("Gagal akses kamera: " + err);
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
